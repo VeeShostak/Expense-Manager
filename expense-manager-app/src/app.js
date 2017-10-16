@@ -13,7 +13,7 @@ import './styles/styles.scss';
 
 const store = configureStore();
 
-store.dispatch(addExpense({ description: 'Rent'}));
+store.dispatch(addExpense({ description: 'Rent bill', amount: 5000}));
 store.dispatch(addExpense({ description: 'Gas bill'}));
 store.dispatch(setTextFilter('bill'));
 
