@@ -34,7 +34,7 @@ export default class ExpenseForm extends React.Component {
   };
   onDateChange = (selectedDate) => {
     // cant clear date, only change it
-    if(createdAt) {
+    if(selectedDate) {
       this.setState(() => ({ createdAt: selectedDate }));
     }
     
