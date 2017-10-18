@@ -3,9 +3,16 @@ import { shallow } from 'enzyme';
 import ExpenseForm from '../../components/ExpenseForm';
 import expenses from '../fixtures/expenses';
 
+// dates are diff, causing snapshot to fail
+// mock a moment
 
 test('should render ExpenseForm correctly', () => {
   const wrapper = shallow(<ExpenseForm />);
+  expect(wrapper).toMatchSnapshot();
+});
+
+test('should render ExpenseForm correctly with expense data', () => {
+  const wrapper = shallow(<ExpenseForm expense={expenses[0]} />);
   expect(wrapper).toMatchSnapshot();
 });
 
