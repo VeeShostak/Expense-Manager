@@ -4,10 +4,21 @@ import ExpenseListItem from './ExpenseListItem';
 import selectExpenses from '../selectors/expenses';
 
 // create new HOC using connect
-
-const ExpenseList = (props) => (
+// export for testing
+export const ExpenseList = (props) => (
   <div>
     <h1>Expense List</h1>
+    {
+      props.expenses.length === 0 ? (
+        <p>No expenses</p>
+      ) : (
+        props.expenses.map( (expense) => {
+          return <ExpenseListItem key={expense.id} {...expense} />;
+        }
+        )
+      )
+    }
+    
     {props.expenses.map( (expense) => {
         return <ExpenseListItem key={expense.id} {...expense} />;
     })}
