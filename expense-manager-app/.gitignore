@@ -1,6 +1,11 @@
 # dependencies
 node_modules
 
+public/bundle.js
+public/bundle.js.map
+public/styles.css
+public/styles.css.map
+
 # Folder view configuration files
 .DS_Store
 **/.DS_Store

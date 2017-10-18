@@ -5,6 +5,9 @@ const express = require('express');
 const app = express();
 const publicPath = path.join(__dirname, '..', 'public');
 
+// use port heroku sets for us, if is doesnt exist use 3000
+const port = process.env.PORT || 3000;
+
 // serve up asset from public dir on requerst
 app.use(express.static(publicPath));
 
@@ -19,6 +22,6 @@ app.get('*', (req, res) => {
 });
 
 // start up the server on port 3000
-app.listen(3000, () => {
+app.listen(port, () => {
   console.log('server is up');
 });
