@@ -1,6 +1,7 @@
 import moment from 'moment';
 import filtersReducer from '../../reducers/filters';
 
+
 test('should setup default filter values', () => {
   // params: current state, action object (redux dispatches @@INIT first)
   const state = filtersReducer(undefined, { type: '@@INIT' });
