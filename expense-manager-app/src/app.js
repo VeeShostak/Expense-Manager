@@ -10,25 +10,9 @@ import { setTextFilter } from './actions/filters';
 import getVisibleExpenses from './selectors/expenses';
 import 'normalize.css/normalize.css'; // css reset makes sure all browsers starting from the same place
 import './styles/styles.scss';
-
 import 'react-dates/lib/css/_datepicker.css';
 
 const store = configureStore();
-
-store.dispatch(addExpense({ description: 'Rent bill', amount: 5000}));
-store.dispatch(addExpense({ description: 'Gas bill', createdAt: 2000}));
-store.dispatch(addExpense({ description: 'Electircity bill', amount: 102300}));
-store.dispatch(setTextFilter('bill'));
-
-setTimeout(() => {
-    store.dispatch(setTextFilter('Rent'));
-  }, 3000)
-  
-
-const state = store.getState();
-const visibleExpenses = getVisibleExpenses(state.expenses, state.filters);
-
-console.log(visibleExpenses);
 
 // provider allows us to provide the store to all the components in our app.
 // individual components that want to access the store can access it
