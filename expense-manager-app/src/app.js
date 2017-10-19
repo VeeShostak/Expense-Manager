@@ -12,6 +12,8 @@ import 'normalize.css/normalize.css'; // css reset makes sure all browsers start
 import './styles/styles.scss';
 import 'react-dates/lib/css/_datepicker.css';
 
+import './firebase/firebase';
+
 const store = configureStore();
 
 // provider allows us to provide the store to all the components in our app.
