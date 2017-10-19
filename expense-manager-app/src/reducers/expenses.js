@@ -8,7 +8,7 @@ const expensesReducer = (state = expensesReducerDefaultState, action) => {
       // return state.concat(action.expense)
       // spread operator. never change that state
       return [
-        ...state, // spread all values of arr here
+        ...state, // spread all prev values of arr here
         action.expense
       ];
       case 'REMOVE_EXPENSE':
@@ -28,6 +28,8 @@ const expensesReducer = (state = expensesReducerDefaultState, action) => {
             return expense;
           }
         });
+      case 'SET_EXPENSES':
+        return action.expenses;
       default:
         return state;
   }
