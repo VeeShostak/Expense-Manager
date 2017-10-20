@@ -1,5 +1,6 @@
 import React from 'react';
-import {BrowserRouter, Route, Switch, Link, NavLink} from 'react-router-dom';
+import {Router, Route, Switch, Link, NavLink} from 'react-router-dom';
+import createHistory from 'history/createBrowserHistory';
 import ExpenseDashboardPage from '../components/ExpenseDashboardPage';
 import AddExpensePage from '../components/AddExpensePage';
 import EditExpensePage from '../components/EditExpensePage';
@@ -8,9 +9,11 @@ import NotFoundPage from '../components/NotFoundPage';
 import Header from '../components/Header';
 import LoginPage from '../components/LoginPage'
 
+export const history = createHistory();
+
 // sfc component
 const AppRouter = () => (
-    <BrowserRouter>
+<Router history={history}>
     <div>
         <Header />
         {/* Switch: if found match stop */}
@@ -23,7 +26,7 @@ const AppRouter = () => (
             <Route component={NotFoundPage} />
         </Switch>
     </div>
-</BrowserRouter>
+</Router>
 
 );
 
