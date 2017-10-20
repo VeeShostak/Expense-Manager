@@ -6,7 +6,7 @@ import {Provider} from 'react-redux';
 import AppRouter, { history } from './routers/AppRouter';
 import configureStore from './store/configureStore';
 import { startSetExpenses } from './actions/expenses';
-import { setTextFilter } from './actions/filters';
+import { login, logout } from './actions/auth';
 import getVisibleExpenses from './selectors/expenses';
 import 'normalize.css/normalize.css'; // css reset makes sure all browsers starting from the same place
 import './styles/styles.scss';
@@ -34,9 +34,11 @@ const renderApp = () => {
 
 ReactDOM.render(<p>Loading...</p>, document.getElementById('app'));
 
+// this callback is run when the user first visits the webpage, so we dispatch here
+// 
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
-
+    store.dispatch(login(user.uid));
     // once expenses are fetched, render app
     store.dispatch(startSetExpenses()).then(() => {
     renderApp();
@@ -45,6 +47,7 @@ firebase.auth().onAuthStateChanged((user) => {
     }
     });
   } else {
+    store.dispatch(logout());
     renderApp();
     history.push('/');
   }

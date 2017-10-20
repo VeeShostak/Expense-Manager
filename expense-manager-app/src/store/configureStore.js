@@ -1,7 +1,9 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
-import expensesReducer from '../reducers/expenses'
-import filtersReducer from '../reducers/filters'
 import thunk from 'redux-thunk'; // Support for dispatching functions
+import expensesReducer from '../reducers/expenses';
+import filtersReducer from '../reducers/filters';
+import authReducer from '../reducers/auth';
+
 
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -11,7 +13,8 @@ export default () => {
         combineReducers({
           // root state name(property), reducer that will manage it
           expenses: expensesReducer,
-          filters: filtersReducer
+          filters: filtersReducer,
+          auth: authReducer
         }),
         composeEnhancers(applyMiddleware(thunk))
       );
