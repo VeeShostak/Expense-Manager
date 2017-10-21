@@ -1,0 +1,37 @@
+{
+  // auth users can only write to expenses and nothing else
+  "rules": {
+    ".read": false,
+    ".write": false,
+    "users": {
+      "$user_id": {
+        ".read": "$user_id === auth.uid",
+        ".write": "$user_id === auth.uid",
+        "expenses": { // for expenses
+        	"$expense_id": {
+            ".validate": "newData.hasChildren(['description', 'note', 'createdAt', 'amount'])",
+            "description": {
+              ".validate": "newData.isString() && newData.val().length > 0"
+            },
+            "note": {
+              ".validate": "newData.isString()"
+            },
+            "createdAt": {
+              ".validate": "newData.isNumber()"
+            },
+            "amount": {
+              ".validate": "newData.isNumber()"
+            },
+            "$other": { // if not one of the properties above, dont allow
+              ".validate": false
+            }
+          }
+        },
+        "$other": { // for everything else
+          ".validate": false
+        }
+      } //end $user_id
+    } // end users
+    
+  } // end rules
+}
