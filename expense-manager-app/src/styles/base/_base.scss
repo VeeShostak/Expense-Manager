@@ -8,16 +8,18 @@ html {
 }
 
 body {
-  background: white;
+  color: $dark-grey;
   font-family: Helvetica, Arial, sans-serif;
   font-size: $m-size;
+  line-height: 1.6;
 }
 
 button {
   cursor: pointer;
 }
-.button:default {
-  cursor: default
+
+button:disabled {
+  cursor: default;
 }
 
 .is-active {
