@@ -1,6 +1,6 @@
 .input-group {
   display: flex;
-  flex-direction: column;
+  flex-direction: column; // left to right for smaller screens
   margin-bottom: $m-size;
   @media (min-width: $desktop-breakpoint) {
     flex-direction: row;

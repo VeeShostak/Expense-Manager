@@ -3,6 +3,11 @@
 // 1rem = 16px
 // 16px base * .625 = 10 :
 // 2.2 rem = 22 px
+
+* {
+  box-sizing: border-box;
+}
+
 html {
   font-size: 62.5%;
 }
