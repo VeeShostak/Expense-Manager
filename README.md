@@ -1,5 +1,5 @@
 # Expense-Manager
-ReactJS and Redux(state management js librar) web app deployed on Heroku. We use Firebase for real-time data storage and user authentication. React-Routing is used for client-side routing. We use Webpack as an asset bundler.
+ReactJS and Redux(state management js library) web app deployed on Heroku. We use Firebase for real-time data storage and user authentication. React-Routing is used for client-side routing. We use Webpack as an asset bundler.
 
 
 ## Notes
@@ -20,14 +20,14 @@ $heroku login
 $heroku react-expense-manager
 
 
-#Add remote
+#Add the remote
 
 #Adds a git remote to your local repo: origin and master
 
 $heroku git:remote -a react-expense-manager
 
 
-#Check
+#Check if it was added
 
 $git remote -v
 
@@ -83,7 +83,7 @@ You must provide your environment variables in the root directory, where the pac
 
 provide two files for testing and development (you should have both environment setup in your Firebase Console):
 
-**.env.tes** and **.env.development**
+**.env.test** and **.env.development**
 
 inside  the files include your variables:
 
